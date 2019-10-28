@@ -1,11 +1,12 @@
 //create a variable to hold one ball
 let b;
-let anotherBall;
+let anotherCat;
+
 
 function setup() {
   createCanvas(800, 400);
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"green");
+  b = new Cat(0, 100,"red");
+  anotherCat = new Cat(200,20,"green");
 }
 
 
@@ -13,14 +14,14 @@ function draw(){
 	background(220);
     b.drawBall(); //draw the ball called b (go look in the Ball class for the drawBall function)
     b.moveBall(); //move the ball called b (go look in the Ball class for the moveBall function)
-    anotherBall.drawBall();
-    anotherBall.moveBall();
+    anotherCat.drawBall();
+    anotherCat.moveBall();
 
 }
 
 
 //ball class from which to create new balls with similar properties.
-class Ball {
+class Cat {
 
 	constructor(x,y,color){ //every ball needs an x value and a y value
 		    this.x = x;
