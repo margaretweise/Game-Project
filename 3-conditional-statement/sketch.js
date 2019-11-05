@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw(){
-	background(220);
+	background("purple");
 
   me.drawMe();
   me.moveMe();
@@ -44,18 +44,20 @@ class Avatar {
 	}
 
 	drawMe(){  // draw the running person
-    		stroke("green");
+    		stroke("black");
         strokeWeight(3);
-    		fill("blue");
-		    ellipse(this.x,this.y,20,20);
-        line(this.x,this.y, this.x, this.y+40);
-        line(this.x, this.y+40, this.x-20, this.y+60);
-        line(this.x, this.y+40, this.x+10, this.y+50);
-        line(this.x+10, this.y+50, this.x+5, this.y+60);
-        line(this.x, this.y+15, this.x-10, this.y+25);
-        line(this.x-10, this.y+25, this.x+10, this.y+35);
-	}
+    		fill("green");
+		    ellipse(this.x,this.y,65,100);
+        fill("brown")
+        ellipse(this.x,this.y,30,30)
+        //line(this.x,this.y, this.x, this.y+40);
+        //line(this.x, this.y+40, this.x-20, this.y+60);
+        //line(this.x, this.y+40, this.x+10, this.y+50);
+        //line(this.x+10, this.y+50, this.x+5, this.y+60);
+        //line(this.x, this.y+15, this.x-10, this.y+25);
+        //line(this.x-10, this.y+25, this.x+10, this.y+35);
 
+}
 	moveMe(){
     if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
        this.y -= this.speed;
@@ -63,6 +65,12 @@ class Avatar {
 
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
+    }
+    if (keyIsDown(LEFT_ARROW)) { //if you hold the up arrow, move up by speed
+       this.x -= this.speed;
+    }
+    if (keyIsDown(RIGHT_ARROW)) { //if you hold the up arrow, move up by speed
+       this.x += this.speed;
     }
 	}
 
@@ -85,10 +93,15 @@ class Ball {
 
 	// draw a ball on the screen at x,y
 	drawBall(){
-    	stroke(0);
+    	stroke(205,133,63);
       strokeWeight(1);
-    	fill("red");
-		  ellipse(this.x,this.y,10,10);
+    	fill(205,133,63);
+		  rect(this.x,this.y,40,40);
+      ellipse(this.x+10,this.y,25,15)
+      ellipse(this.x+30,this.y,25,15)
+      //fill("pink")
+      //ellipse(this.x,this.y,40,40)
+
 	}
 
 	//update the location of the ball, so it moves across the screen
@@ -99,7 +112,7 @@ class Ball {
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
   	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+    		if (this.x >= me.x-50 && this.x <= me.x+50 && this.y > me.y-60 && this.y < me.y+60){
       			this.speed = -this.speed;
     		}
   	}
